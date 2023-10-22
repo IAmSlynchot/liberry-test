@@ -1,0 +1,7 @@
+<suite name="homePage" parallel="false">
+    <test name="testngTest">
+        <classes>
+            <class name="homePage.testHomePage" />
+        </classes>
+    </test>
+</suite>

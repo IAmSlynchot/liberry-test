@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-10-22T00:41:33Z" name="homePage" finished-at="2023-10-22T00:41:35Z" duration-ms="2285">
+    <groups>
+    </groups>
+    <test started-at="2023-10-22T00:41:33Z" name="testngTest" finished-at="2023-10-22T00:41:35Z" duration-ms="2285">
+      <class name="homePage.testHomePage">
+        <test-method is-config="true" signature="beforeClass()[pri:0, instance:homePage.testHomePage@158da8e]" started-at="2023-10-21T20:41:33Z" name="beforeClass" finished-at="2023-10-21T20:41:35Z" duration-ms="1489" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method signature="testOpenHomePage()[pri:0, instance:homePage.testHomePage@158da8e]" started-at="2023-10-21T20:41:35Z" name="testOpenHomePage" finished-at="2023-10-21T20:41:35Z" duration-ms="691" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testOpenHomePage -->
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:homePage.testHomePage@158da8e]" started-at="2023-10-21T20:41:35Z" name="afterClass" finished-at="2023-10-21T20:41:35Z" duration-ms="95" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- homePage.testHomePage -->
+    </test> <!-- testngTest -->
+  </suite> <!-- homePage -->
+</testng-results>
