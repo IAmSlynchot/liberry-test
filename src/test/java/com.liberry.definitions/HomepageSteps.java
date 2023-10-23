@@ -1,18 +1,21 @@
-package homePage;
+package com.liberry.definitions;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 
-public class testHomePage {
+
+import io.cucumber.java.en.*;
+
+public class HomepageSteps {
+
     private WebDriver driver;
 
-    @BeforeClass
+    @Before
     public void beforeClass() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/ChromeDriver/chromedriver");
         driver = new ChromeDriver();
@@ -27,13 +30,17 @@ public class testHomePage {
         }
     }
 
-    @Test
-    public void testOpenHomePage() {
+    @When("the homepage loads")
+    public void loadHomePage() {
         driver.get("http://localhost:3000/");
+    }
+
+    @Then("the page title text is visible")
+    public void titleTextVisible() {
         Assert.assertEquals(driver.getTitle(), "LiBerry");
     }
 
-    @AfterClass
+    @After
     public void afterClass() {
         driver.quit();
     }

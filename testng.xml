@@ -1,7 +1,7 @@
 <suite name="homePage" parallel="false">
     <test name="testngTest">
         <classes>
-            <class name="homePage.testHomePage" />
+            <class name="com.liberry.runner.RunCucumberTest" />
         </classes>
     </test>
 </suite>
