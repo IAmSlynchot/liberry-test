@@ -8,6 +8,7 @@ import org.testng.Assert;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -20,22 +21,10 @@ public class HomepageSteps extends TestSteps {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
-
-    @When("I load the application")
-    public void loadApplication() {
-        driver.get("http://localhost:3000/");
-    }
-
-    @When("I log in as an existing user")
-    public void logInAsExistingUser() {
-        driver.findElement(By.id("amplify-id-:r4:")).sendKeys("sam");
-        driver.findElement(By.id("amplify-id-:r7:")).sendKeys("123testing");
-        driver.findElement(By.className("amplify-button--primary")).click();
-    }
-
-    @When("the homepage loads")
-    public void loadHomePage() {
-        driver.get("http://localhost:3000/");
+    @Given("I am logged in as an existing user")
+    public void launchAndLogin(){
+        this.loadHomepage();
+        this.logInAsExistingUser();
     }
 
     @When("I navigate to the {string} page")
@@ -55,17 +44,6 @@ public class HomepageSteps extends TestSteps {
         }
     }
 
-    @Then("the page title text is visible")
-    public void titleTextVisible() {
-        Assert.assertEquals(driver.getTitle(), "LiBerry");
-    }
-
-    @Then("the main brand header should be visible")
-    public void brandHeaderVisible() {
-        Assert.assertTrue(isElementPresent(By.id("brand-header-logo")));
-        String headerText = driver.findElement(By.id("brand-header-title")).getText();
-        Assert.assertEquals(headerText, "LiBerry");
-    }
 
     @Then("the {string} page heading should display")
     public void verifyPageHeading(String target) {
