@@ -8,10 +8,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public abstract class TestSteps {
     protected WebDriver driver;
+    protected static final Logger log = LogManager.getLogger(TestSteps.class);
+
 
     protected void initializeWebDriver() {
+        log.info("Initializing webdriver...");
         System.setProperty("webdriver.chrome.driver", "src/test/resources/ChromeDriver/chromedriver");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
@@ -19,7 +25,7 @@ public abstract class TestSteps {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
-    protected void loadHomepage() {            
+    protected void loadHomepage() {    
         driver.get("http://localhost:3000/");
     }
 
@@ -40,5 +46,9 @@ public abstract class TestSteps {
         } catch (NoSuchElementException e) {
             return false;
         }
+    }
+
+    protected boolean isTextPresent(String textToLocate) {
+        return isElementPresent(By.xpath ("//*[contains(text(),'" + textToLocate + "')]"));
     }
 }

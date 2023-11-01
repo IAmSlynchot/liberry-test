@@ -30,6 +30,13 @@ public class AuthenticationSteps extends TestSteps {
         driver.findElement(By.id("nav-left-signOut")).click();
     }
 
+    @When("I enter invalid user credentials")
+    public void enterInvalidCredentials() {
+        driver.findElement(By.id("amplify-id-:r4:")).sendKeys("someGuy");
+        driver.findElement(By.id("amplify-id-:r7:")).sendKeys("badpassword");
+        driver.findElement(By.className("amplify-button--primary")).click();
+    }
+
     @Then("the main brand header should display")
     public void brandHeaderVisible() {
         Assert.assertTrue(isElementPresent(By.id("brand-header-logo")));
@@ -44,7 +51,12 @@ public class AuthenticationSteps extends TestSteps {
 
     @Then("I should be on the login screen")
     public void verifyLoginPage() {
-        Assert.assertTrue(isElementPresent(By.id("amplify-id-:rd:")));
+        Assert.assertTrue(isTextPresent("Sign In"));
+    }
+
+    @Then("the text {string} should display")
+    public void the_text_should_display(String text) {
+        Assert.assertTrue(isTextPresent(text));
     }
 
     @After
