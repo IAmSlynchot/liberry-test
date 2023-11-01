@@ -1,11 +1,23 @@
 package com.liberry.definitions;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public abstract class TestSteps {
     protected WebDriver driver;
+
+    protected void initializeWebDriver() {
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/ChromeDriver/chromedriver");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("headless");
+        driver = new ChromeDriver(options);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    }
 
     protected void loadHomepage() {            
         driver.get("http://localhost:3000/");

@@ -1,9 +1,6 @@
 package com.liberry.definitions;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
 import io.cucumber.java.After;
@@ -15,9 +12,7 @@ public class AuthenticationSteps extends TestSteps {
     
     @Before
     public void beforeClass() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/ChromeDriver/chromedriver");
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        initializeWebDriver();
     }
 
     @When("I open the application")
